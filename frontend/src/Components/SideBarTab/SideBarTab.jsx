@@ -5,57 +5,79 @@ import {
   TabsBody,
   Tab,
   TabPanel,
+  Typography,
 } from "@material-tailwind/react";
 import {
   Square3Stack3DIcon,
   UserCircleIcon,
   Cog6ToothIcon,
 } from "@heroicons/react/24/solid";
- 
+import { Input } from "@material-tailwind/react";
+
 export default function SideBarTab() {
-  const data = [
-    {
-      label: "Dashboard",
-      value: "dashboard",
-      icon: Square3Stack3DIcon,
-      desc: `It really matters and then like it really doesn't matter.
-      What matters is the people who are sparked by it. And the people 
-      who are like offended by it, it doesn't matter.`,
-    },
-    {
-      label: "Profile",
-      value: "profile",
-      icon: UserCircleIcon,
-      desc: `Because it's about motivating the doers. Because I'm here
-      to follow my dreams and inspire other people to follow their dreams, too.`,
-    },
-    {
-      label: "Settings",
-      value: "settings",
-      icon: Cog6ToothIcon,
-      desc: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're
-      constantly trying to express ourselves and actualize our dreams.`,
-    },
-  ];
+
   return (
-    <Tabs value="dashboard" orientation="vertical">
-      <TabsHeader className="w-40">
-        {data.map(({ label, value, icon }) => (
-          <Tab key={value} value={value} className="place-items-start">
-            <div className="flex items-center gap-2">
-              {React.createElement(icon, { className: "w-5 h-5" })}
-              {label}
-            </div>
-          </Tab>
-        ))}
+    <Tabs value="dashboard" orientation="vertical" className="h-100 ">
+      <TabsHeader className="w-40 h-100">
+
+        <Tab key={1} value={1} className="place-items-start " >
+          <div className="">
+            {React.createElement(Square3Stack3DIcon, { className: "m-auto h-5" })}
+            <Typography className="text-[10px]">Design</Typography>
+
+          </div>
+        </Tab>
+        <Tab key={2} value={2} className="place-items-start">
+          <div className="">
+            {React.createElement(UserCircleIcon, { className: "m-auto h-5" })}
+            <Typography className="text-[10px]">Element</Typography>
+
+          </div>
+        </Tab>
+        <Tab key={3} value={3} className="place-items-start">
+          <div className="">
+            {React.createElement(Cog6ToothIcon, { className: "m-auto h-5" })}
+            <Typography className="text-[10px]">History</Typography>
+
+
+          </div>
+        </Tab>
+
       </TabsHeader>
       <TabsBody>
-        {data.map(({ value, desc }) => (
-          <TabPanel key={value} value={value} className="py-0">
-            {desc}
-          </TabPanel>
-        ))}
+
+        <TabPanel key={1} value={1} className="py-0">
+          <div className="w-72">
+            <Input
+              type="email"
+              placeholder="Email Address"
+              className="focus:!border-t-blue-500 focus:!border-blue-500 ring-4 ring-transparent focus:ring-blue-500/20 !border !border-blue-gray-50 bg-white shadow-lg shadow-blue-gray-900/5 placeholder:text-blue-gray-200 text-blue-gray-500"
+              labelProps={{
+                className: "hidden"
+              }}
+              containerProps={{ className: "min-w-[100px]" }}
+            />
+          </div>
+
+        </TabPanel>
+        <TabPanel key={2} value={2} className="py-0">
+
+          <div className="w-72">
+            <Typography>focus:!border-t-blue-500 focus:!border-blue-500 ring-4 ring-transparent focus:ring-blue-500/20 !border !border-blue-gray-50 bg-white shadow-lg shadow-blue-gray-900/5 placeholder:text-blue-gray-200 text-blue-gray-500</Typography>
+          </div>
+
+        </TabPanel>
+        <TabPanel key={3} value={3} className="py-0">
+
+          <div className="w-72">
+            <Typography>
+
+              fsdggadsgfdsagfydgfydgfyadgfyadsgfyasdgfyadsgfydsgfadsyg
+            </Typography>
+          </div>
+
+        </TabPanel>
+
       </TabsBody>
     </Tabs>
   );
