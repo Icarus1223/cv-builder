@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
 import {
   Tabs,
@@ -9,11 +9,6 @@ import {
   Typography,
   Tooltip
 } from "@material-tailwind/react";
-import {
-  Square3Stack3DIcon,
-  UserCircleIcon,
-  Cog6ToothIcon,
-} from "@heroicons/react/24/solid";
 import { Input } from "@material-tailwind/react";
 import Search from "../../assets/Svg/HomePageSvg/Search";
 import RightArrow from "../../assets/Svg/HomePageSvg/RightArrow";
