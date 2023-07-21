@@ -19,6 +19,7 @@ module.exports = withMT({
         'light-grey': '#E7E8E9',
         'light-black':'#252628',
         'home-white-smoke':'#F1F1F1',
+        'light-grey':'#8E939D',
       },
     },
   },

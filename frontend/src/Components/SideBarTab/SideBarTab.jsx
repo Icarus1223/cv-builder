@@ -15,31 +15,35 @@ import {
 } from "@heroicons/react/24/solid";
 import { Input } from "@material-tailwind/react";
 import Search from "../../assets/Svg/HomePageSvg/Search";
+import RightArrow from "../../assets/Svg/HomePageSvg/RightArrow";
+import DesignIcon from "../../assets/Svg/HomePageSvg/DesignIcon";
+import ElementIcon from "../../assets/Svg/HomePageSvg/ElementIcon";
+import TextIcon from "../../assets/Svg/HomePageSvg/TextIcon";
 
 export default function SideBarTab() {
 
 
   return (
-    <Tabs value="dashboard" orientation="vertical" className="h-screen  bg-dark-black">
-      <TabsHeader className="w-40  pe-0 bg-transparent">
+    <Tabs value="dashboard" orientation="vertical" className="  overflow-visible sidebar-tabs">
+      <TabsHeader className="w-[72px] pe-0 bg-transparent pt-0 ps-2">
 
-        <Tab key={1} value={1} className="place-items-start " >
+        <Tab key={1} value={1} className="place-items-start py-3" >
           <div className="">
-            {React.createElement(Square3Stack3DIcon, { className: "m-auto h-5" })}
+            <DesignIcon />
             <Typography className="text-[10px]">Design</Typography>
 
           </div>
         </Tab>
-        <Tab key={2} value={2} className="place-items-start " >
-          <div className="">
-            {React.createElement(UserCircleIcon, { className: "m-auto h-5" })}
+        <Tab key={2} value={2} className="place-items-start py-3" >
+          <div className="text-center">
+            <ElementIcon className='m-auto' />
             <Typography className="text-[10px]">Element</Typography>
 
           </div>
         </Tab>
-        <Tab key={3} value={3} className="place-items-start " >
+        <Tab key={3} value={3} className="place-items-start py-3" >
           <div className="">
-            {React.createElement(Cog6ToothIcon, { className: "m-auto h-5" })}
+            <TextIcon className='m-auto' />
             <Typography className="text-[10px]">History</Typography>
 
 
@@ -47,8 +51,7 @@ export default function SideBarTab() {
         </Tab>
 
       </TabsHeader>
-      <TabsBody className="py-3.5 px-6 bg-light-black">
-
+      <TabsBody className="py-3.5 px-6 bg-light-black relative overflow-visible">
         <TabPanel key={1} value={1} className="py-0">
           <div className="search-input relative">
             <Input
@@ -98,13 +101,17 @@ export default function SideBarTab() {
           <div className="w-72">
             <Typography>
 
-              fsdggadsgfdsagfydgfydgfyadgfyadsgfyasdgfyadsgfydsgfadsyg
+              fsdggadsgfdsagfyd
+              cbc
             </Typography>
           </div>
 
         </TabPanel>
+        <div className="sidebar-close-btn absolute right-[-16px] top-[50%] translate-y-[-50%] z-10">
+          <button className=""><RightArrow /> </button>
+        </div>
 
-      </TabsBody>
-    </Tabs>
+      </TabsBody >
+    </Tabs >
   );
 }
