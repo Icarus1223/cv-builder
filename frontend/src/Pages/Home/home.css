@@ -1,3 +1,13 @@
+
+.home-wrapper{
+    display: grid;
+    grid-template-columns: 5% 95%;
+}
+.home_wrapper_full{
+    display: grid;
+    grid-template-columns: 35% 65%;
+}
+
     .border-gradient {
         border-radius: 20px;
         border-width: 1px;
@@ -6,3 +16,4 @@
         box-shadow: 2px 1000px 1px #fff inset;
         background-origin: border-box;
     }
+

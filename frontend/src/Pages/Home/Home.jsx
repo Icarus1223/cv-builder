@@ -1,5 +1,7 @@
-import React from 'react'
-import "./home.css";
+
+import React, { useState } from 'react'
+import './home.css'
+
 import SideBarTab from '../../Components/SideBarTab/SideBarTab'
 import ExportSvg from '../../assets/Svg/HomePageSvg/ExportSvg'
 import { Typography } from '@material-tailwind/react'
@@ -9,13 +11,14 @@ import Star from '../../assets/Svg/HomePageSvg/Star'
 import Send from '../../assets/Svg/HomePageSvg/Send'
 
 const Home = () => {
+    const [sideBarToggle , setSideBarToggle] = useState(false)
     return (
         <>
-            <div class="grid grid-cols-12">
-                <div class="col-span-4 bg-dark-black">
-                    <SideBarTab />
+            <div className={!sideBarToggle ? `home-wrapper` : "home_wrapper_full"}>
+                <div className=" bg-dark-black">
+                    <SideBarTab toggleProp={setSideBarToggle}/>
                 </div>
-                <div class="col-span-8 bg-home-white-smoke relative">
+                <div className=" bg-home-white-smoke relative">
                     <div className='pt-[90px]'>
                         <div className='shadow shadow-[0_1px_10px_0px_rgba(155, 126, 219, 0.20)] blank-page h-[520px] w-[400px] bg-white m-auto'></div>
                         <div className='add_new_page_button text-center py-[18px] relative'>
