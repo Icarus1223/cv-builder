@@ -34,7 +34,7 @@ export default function SideBarTab({ toggleProp }) {
 
   return (
     <Tabs value={activeTab} orientation="vertical" className="  overflow-visible sidebar-tabs">
-      <TabsHeader className="w-[72px] pe-0 bg-transparent pt-0 ps-2">
+      <TabsHeader className="w-[72px] pe-0 bg-transparent pt-0 ps-2 sidebar_tabs">
 
 
         <Tab key={1} value={1} className="place-items-start py-3" onClick={() => {activeTabHandler(); setActiveTab(1)}} >
