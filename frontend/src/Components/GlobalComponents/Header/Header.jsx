@@ -22,7 +22,7 @@ function ProfileMenu() {
                 <Button
                     variant="text"
                     color="blue-gray"
-                    className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto hover:bg-transparent"
+                    className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 ml-auto hover:bg-transparent"
                 >
                     <div className="text-right me-2	">
                         <Typography variant="h1" className="normal-case text-light-grey text-xs	font-medium	">

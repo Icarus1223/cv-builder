@@ -1,4 +1,5 @@
 import React from 'react'
+import "./home.css";
 import SideBarTab from '../../Components/SideBarTab/SideBarTab'
 import ExportSvg from '../../assets/Svg/HomePageSvg/ExportSvg'
 import { Typography } from '@material-tailwind/react'
@@ -19,12 +20,14 @@ const Home = () => {
                         <div className='shadow shadow-[0_1px_10px_0px_rgba(155, 126, 219, 0.20)] blank-page h-[520px] w-[400px] bg-white m-auto'></div>
                         <div className='add_new_page_button text-center py-[18px] relative'>
                             <button className='flex gap-5 justify-center m-auto border border-[#E7E8E9] bg-white w-[400px] py-2 text-grey-color text-[11px] rounded-[10px]'>Add new page <span>+</span></button>
-                            <div className='ask_ai absolute bottom-0 right-0'>
-                                <div className=''>
-                                    <Star />
-                                    <input type="text" placeholder='Ask AI to edit or generate...' class="
-                                "/>
-                                    <div className=''>
+                            <div className='ask_ai absolute bottom-[18px] right-[110px]'>
+                                <div className='reltive '>
+                                    <div className='absolute top-[9px] left-3'>
+                                        <Star />
+                                    </div>
+                                    <input type="text" placeholder='Ask AI to edit or generate...' class="placeholder:text-[11px] text-AiInput-color
+                                     py-2 rounded-[20px] w-[250px] ps-8 border-2 text-[11px] border-InputBorder-color  focus:outline-none border-gradient"  />
+                                    <div className='absolute top-[11px] right-3.5'>
                                         <Send />
                                     </div>
 

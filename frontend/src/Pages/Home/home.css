@@ -1,0 +1,8 @@
+    .border-gradient {
+        border-radius: 20px;
+        border-width: 1px;
+        background-image: linear-gradient(100.4deg, #7741EE 5.5%, #FE65C4 99.7%);
+        border: 2px solid transparent;
+        box-shadow: 2px 1000px 1px #fff inset;
+        background-origin: border-box;
+    }
