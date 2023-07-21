@@ -11,14 +11,14 @@ import Star from '../../assets/Svg/HomePageSvg/Star'
 import Send from '../../assets/Svg/HomePageSvg/Send'
 
 const Home = () => {
-    const [sideBarToggle , setSideBarToggle] = useState(false)
+    const [sideBarToggle, setSideBarToggle] = useState(false)
     return (
         <>
             <div className={!sideBarToggle ? `home-wrapper` : "home_wrapper_full"}>
                 <div className=" bg-dark-black">
-                    <SideBarTab toggleProp={setSideBarToggle}/>
+                    <SideBarTab toggleProp={setSideBarToggle} />
                 </div>
-                <div className=" bg-home-white-smoke relative">
+                <div className=" bg-home-white-smoke relative w-full">
                     <div className='pt-[90px]'>
                         <div className='shadow shadow-[0_1px_10px_0px_rgba(155, 126, 219, 0.20)] blank-page h-[520px] w-[400px] bg-white m-auto'></div>
                         <div className='add_new_page_button text-center py-[18px] relative'>

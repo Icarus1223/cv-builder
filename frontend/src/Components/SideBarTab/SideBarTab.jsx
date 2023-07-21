@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import {
   Tabs,
@@ -59,7 +59,7 @@ export default function SideBarTab({ toggleProp }) {
       {
         siderTogle && (
           <>
-            <TabsBody className="py-3.5 px-6 bg-light-black relative overflow-visible"
+            <TabsBody className="py-3.5 px-6 bg-light-black relative overflow-visible w-[350px]"
               animate={{
                 initial: { y: 250 },
                 mount: { y: 0 },
