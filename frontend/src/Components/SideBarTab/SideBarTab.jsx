@@ -15,9 +15,13 @@ import RightArrow from "../../assets/Svg/HomePageSvg/RightArrow";
 import DesignIcon from "../../assets/Svg/HomePageSvg/DesignIcon";
 import ElementIcon from "../../assets/Svg/HomePageSvg/ElementIcon";
 import TextIcon from "../../assets/Svg/HomePageSvg/TextIcon";
+import UploadTabIcon from "../../assets/Svg/HomePageSvg/UploadTabIcon";
+import HistoryTabIcon from "../../assets/Svg/HomePageSvg/HistoryTabIcon";
+import DesignSectionTabs from "./DesignSectionTabs";
 
 export default function SideBarTab({ toggleProp }) {
-  const [siderTogle, setSiderTogle] = useState(false)
+  const [siderTogle, setSiderTogle] = useState(false);
+  const [activeTab, setActiveTab] = useState(1);
 
   const activeTabHandler = () => {
     setSiderTogle(true)
@@ -29,28 +33,42 @@ export default function SideBarTab({ toggleProp }) {
   }
 
   return (
-    <Tabs value="dashboard" orientation="vertical" className="  overflow-visible sidebar-tabs">
-      <TabsHeader className="w-[72px] pe-0 bg-transparent pt-0 ps-2 sidebar_tabs">
+    <Tabs value={activeTab} orientation="vertical" className="  overflow-visible sidebar-tabs">
+      <TabsHeader className="w-[72px] pe-0 bg-transparent pt-0 ps-2">
 
-        <Tab key={1} value={1} className="place-items-start py-3" onClick={activeTabHandler} >
+
+        <Tab key={1} value={1} className="place-items-start py-3" onClick={() => {activeTabHandler(); setActiveTab(1)}} >
           <div className="">
             <DesignIcon />
             <Typography className="text-[10px] text-white ">Design</Typography>
 
           </div>
         </Tab>
-        <Tab key={2} value={2} className="place-items-start py-3" onClick={activeTabHandler} >
+        <Tab key={2} value={2} className="place-items-start py-3" onClick={() => {activeTabHandler(); setActiveTab(2)}} >
           <div className="text-center">
             <ElementIcon className='m-auto' />
             <Typography className="text-[10px]">Element</Typography>
 
           </div>
         </Tab>
-        <Tab key={3} value={3} className="place-items-start py-3" onClick={activeTabHandler}  >
+        <Tab key={3} value={3} className="place-items-start py-3" onClick={() => {activeTabHandler(); setActiveTab(3)}}  >
           <div className="">
             <TextIcon className='m-auto' />
             <Typography className="text-[10px]">History</Typography>
 
+          </div>
+        </Tab>
+        <Tab key={4} value={4} className="place-items-start py-3" onClick={() => {activeTabHandler(); setActiveTab(4)}}  >
+          <div className="">
+            <UploadTabIcon className='m-auto' />
+            <Typography className="text-[10px]">Uploads</Typography>
+
+          </div>
+        </Tab>
+        <Tab key={5} value={5} className="place-items-start py-3" onClick={() => {activeTabHandler(); setActiveTab(5)}}  >
+          <div className="">
+            <HistoryTabIcon className='m-auto' />
+            <Typography className="text-[10px]">History</Typography>
 
           </div>
         </Tab>
@@ -70,8 +88,8 @@ export default function SideBarTab({ toggleProp }) {
               <TabPanel key={1} value={1} className="py-0">
                 <div className="search-input relative">
                   <Input
-                    type="email"
-                    placeholder="Email Address"
+                    type="search"
+                    placeholder="Search"
                     className="focus:!border-light-grey rounded-[10px]  !border !border-light-grey bg-white placeholder:text-xs"
                     labelProps={{
                       className: "hidden"
@@ -82,25 +100,7 @@ export default function SideBarTab({ toggleProp }) {
                     <Search />
                   </div>
                 </div>
-                <div className="design_tabs">
-                  <Tabs value="dashboard" orientation="horizontal" className="">
-                    <TabsHeader className=" pe-0 bg-transparent flex justify-between	">
-
-                      <Tab key={1} value={1} className="place-items-start " >
-                        <div className="">
-                          <Typography className="text-[14px] text-white font-medium	">Templates</Typography>
-
-                        </div>
-                      </Tab>
-                      <Tab key={2} value={2} className="place-items-start " >
-                        <div className="">
-                          <Typography className="text-[14px] text-white font-medium	">Styles</Typography>
-
-                        </div>
-                      </Tab>
-                    </TabsHeader>
-                  </Tabs>
-                </div>
+               <DesignSectionTabs/>
 
               </TabPanel>
               <TabPanel key={2} value={2} className="py-0">
