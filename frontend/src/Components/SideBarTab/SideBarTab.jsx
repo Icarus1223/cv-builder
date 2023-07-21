@@ -30,12 +30,12 @@ export default function SideBarTab({ toggleProp }) {
 
   return (
     <Tabs value="dashboard" orientation="vertical" className="  overflow-visible sidebar-tabs">
-      <TabsHeader className="w-[72px] pe-0 bg-transparent pt-0 ps-2">
+      <TabsHeader className="w-[72px] pe-0 bg-transparent pt-0 ps-2 sidebar_tabs">
 
         <Tab key={1} value={1} className="place-items-start py-3" onClick={activeTabHandler} >
           <div className="">
             <DesignIcon />
-            <Typography className="text-[15px] text-white ">Design</Typography>
+            <Typography className="text-[10px] text-white ">Design</Typography>
 
           </div>
         </Tab>
@@ -59,7 +59,7 @@ export default function SideBarTab({ toggleProp }) {
       {
         siderTogle && (
           <>
-            <TabsBody className="py-3.5 px-6 bg-light-black relative overflow-visible w-[350px]"
+            <TabsBody className="py-3.5 px-6 bg-light-black relative overflow-visible  w-[350px] tab_content"
               animate={{
                 initial: { y: 250 },
                 mount: { y: 0 },
