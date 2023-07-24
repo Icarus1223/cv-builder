@@ -10,6 +10,7 @@ import {
     Avatar,
 
 } from "@material-tailwind/react";
+import ExportIcon from "../../../assets/Svg/MobileViewSvg/ExportIcon";
 
 
 function ProfileMenu() {
@@ -22,15 +23,18 @@ function ProfileMenu() {
                 <Button
                     variant="text"
                     color="blue-gray"
-                    className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 ml-auto hover:bg-transparent"
+                    className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 ml-auto hover:bg-transparent rounded-none"
                 >
-                    <div className="text-right me-2	">
+                    <div className="text-right me-2 hidden	md:block">
                         <Typography variant="h1" className="normal-case text-light-grey text-xs	font-medium	">
                             Haroon
                         </Typography>
                         <Typography variant="h6" className="normal-case text-light-grey text-[10px]	font-normal	">
                             haroon@gmail.com
                         </Typography>
+                    </div>
+                    <div className="bg-white w-[40px] h-[40px] flex justify-center items-center rounded-[10px] me-[12px] block md:hidden ">
+                        <ExportIcon />
                     </div>
                     <Avatar
                         variant="circular"
