@@ -10,10 +10,24 @@ const createUpload = catchAsync(async (req, res) => {
 });
 
 const getUploads = catchAsync(async (req, res) => {
-  const filter = { userId: req.user.id };
+  let filter = pick(req.query, ['name']);
+  if (filter.name) {
+    filter.name = { $regex: new RegExp(filter.name, "i") };
+  }
+  filter = { ...filter, userId: req.user.id };
+  
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
   const result = await uploadService.queryUploads(filter, options);
   res.send(result);
+});
+
+
+const getUpload = catchAsync(async (req, res) => {
+  const upload = await uploadService.getUploadById(req.params.uploadId);
+  if (!upload) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Upload not found');
+  }
+  res.send(upload);
 });
 
 const deleteUpload = catchAsync(async (req, res) => {
@@ -24,5 +38,6 @@ const deleteUpload = catchAsync(async (req, res) => {
 module.exports = {
   createUpload,
   getUploads,
+  getUpload,
   deleteUpload,
 };

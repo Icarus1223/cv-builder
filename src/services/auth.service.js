@@ -13,11 +13,31 @@ const { tokenTypes } = require('../config/tokens');
  */
 const loginUserWithEmailAndPassword = async (email, password) => {
   const user = await userService.getUserByEmail(email);
+  if (user.socialId) {
+    throw new ApiError(httpStatus.UNAUTHORIZED, 'Please login with social account');
+  }
   if (!user || !(await user.isPasswordMatch(password))) {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Incorrect email or password');
   }
   return user;
 };
+
+const loginSocial = async (authUser) => {
+  let { email, ...rest } = authUser;
+  let user = await userService.getUserBySocialId(rest.socialId);
+
+  if (!user) {
+    const isEmailTaken = await userService.getUserByEmail(email);
+    if (!isEmailTaken) {
+      rest.email = email;
+      delete rest.alternativeEmail;
+    }
+    user = await userService.createUser(rest);
+  }
+
+  return user;
+}
+
 
 /**
  * Logout
@@ -50,6 +70,7 @@ const refreshAuth = async (refreshToken) => {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Please authenticate');
   }
 };
+
 
 /**
  * Reset password
@@ -96,4 +117,5 @@ module.exports = {
   refreshAuth,
   resetPassword,
   verifyEmail,
+  loginSocial
 };

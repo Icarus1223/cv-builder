@@ -18,9 +18,16 @@ const createUpload = Joi.object({
 
 const getUploads = {
   query: Joi.object().keys({
+    name: Joi.string(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
+  }),
+};
+
+const getUpload = {
+  params: Joi.object().keys({
+    uploadId: Joi.string().custom(objectId),
   }),
 };
 
@@ -34,5 +41,6 @@ const deleteUpload = {
 module.exports = {
   createUpload,
   getUploads,
+  getUpload,
   deleteUpload,
 };

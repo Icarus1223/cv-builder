@@ -1,6 +1,7 @@
 const httpStatus = require('http-status');
 const catchAsync = require('../utils/catchAsync');
 const { authService, userService, tokenService, emailService } = require('../services');
+const config = require('../config/config');
 
 const register = catchAsync(async (req, res) => {
   const user = await userService.createUser(req.body);
@@ -47,6 +48,34 @@ const verifyEmail = catchAsync(async (req, res) => {
   res.status(httpStatus.NO_CONTENT).send();
 });
 
+const loginSocial = catchAsync(async (req, res) => {
+  let userAuth = {
+    socialId: `${req.user.provider}-${req.user.id}`,
+    email: req.user.emails[0].value,
+    alternativeEmail: req.user.emails[0].value,
+    isEmailVerified: true
+  }
+  switch (req.user.provider) {
+    case 'google':
+      userAuth.firstName = req.user.name.givenName;
+      userAuth.lastName = req.user.name.familyName;
+      userAuth.location = req.user._json.locale;
+      break;
+    case 'twitter':
+      userAuth.firstName = req.user.displayName;
+      userAuth.location = req.user._json.location;
+      break;
+    case 'linkedin':
+      userAuth.firstName = req.user.name.givenName;
+      userAuth.lastName = req.user.name.familyName;
+      break;
+  }
+  const user = await authService.loginSocial(userAuth);
+  const tokens = await tokenService.generateAuthTokens(user);
+  res.redirect(config.frontend.url + `/access_token/${tokens.access.token}`);
+});
+
+
 module.exports = {
   register,
   login,
@@ -56,4 +85,5 @@ module.exports = {
   resetPassword,
   sendVerificationEmail,
   verifyEmail,
+  loginSocial
 };
