@@ -1,9 +1,12 @@
-import React, { Children, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Header from '../GlobalComponents/Header/Header'
 import SideBarTab from '../SideBarTab/SideBarTab'
 import BottomTabs from '../BottomTabs/BottomTabs'
+import {useLocation} from "react-router-dom"
 
 const Layout = ({children}) => {
+  const location = useLocation(); // Get the current location
+  const isAccessTokenPath = location.pathname.includes('/access_token/');
     const [sideBarToggle, setSideBarToggle] = useState(false)
     const [sideBarOptions, setSideBarOptions] = useState(false)
     const [aiToggle, setAiTogle] = useState(false)
@@ -47,7 +50,7 @@ const Layout = ({children}) => {
   
   return (
     <>
-          <Header />
+    {!isAccessTokenPath && <Header />}
           <div className={!sideBarToggle ? "home-wrapper" : "home_wrapper_full"}
             ref={containerRef}
             onTouchMove={handleTouchMove}
