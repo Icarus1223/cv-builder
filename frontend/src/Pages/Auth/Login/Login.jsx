@@ -7,6 +7,8 @@ import Linkdin from '../../../assets/Svg/LoginPageSvg/Linkdin';
 
 
 const Login = () => {
+
+  
   return (
     <section class="bg-dark-black min-h-screen grid">
       <div class="flex flex-col items-center justify-center px-[15px] pb-8 md:pt-[70px] pt-[30px] md:mx-auto  bg-dark-black">
